@@ -1,0 +1,183 @@
+{
+  "family": "retaildemostore-Services-YIYWFSX96N3X-SearchService-1IA1XFQS3GRTP-Service-DPZ0TCTD83WJ-retaildemostore",
+  "taskRoleArn": "arn:aws:iam::449828813699:role/retaildemostore-Services-YIYWFSX96N3X-Sea-TaskRole-715BEKY1QQ45",
+  "executionRoleArn": "arn:aws:iam::449828813699:role/retaildemostore-Services-YIYWFSX-TaskExecutionRole-DPYVTCIG3DI4",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "search",
+      "image": "<IMAGE1_NAME>",
+      "cpu": 0,
+      "memory": 256,
+      "links": [],
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": [],
+      "environment": [
+        {
+          "name": "SEARCH_SERVICE_HOST",
+          "value": "search.retaildemostore.local"
+        },
+        {
+          "name": "EVIDENTLY_PROJECT_NAME",
+          "value": "retaildemostore-us-east-1"
+        },
+        {
+          "name": "PARAMETER_IVS_VIDEO_CHANNEL_MAP",
+          "value": "none"
+        },
+        {
+          "name": "PERSONALIZE_PRECREATE_CAMPAIGNS_EVENTRULENAME",
+          "value": "RetailDemoStore-PersonalizePreCreateScheduledRule"
+        },
+        {
+          "name": "WEB_ROOT_URL",
+          "value": "http://d24xc2blgxaili.cloudfront.net"
+        },
+        {
+          "name": "PERSONALIZE_CAMPAIGN_ARN",
+          "value": "none"
+        },
+        {
+          "name": "STACK_BUCKET",
+          "value": "none"
+        },
+        {
+          "name": "OFFERS_SERVICE_HOST",
+          "value": "offers.retaildemostore.local"
+        },
+        {
+          "name": "PRODUCTS_SERVICE_HOST",
+          "value": "products.retaildemostore.local"
+        },
+        {
+          "name": "OPENSEARCH_DOMAIN_HOST",
+          "value": "vpc-opensearchdomai-k7ub873piyvl-wv75qjg44tjwkhs6mzrlx2n67i.us-east-1.es.amazonaws.com"
+        },
+        {
+          "name": "PRODUCTS_SERVICE_PORT",
+          "value": "80"
+        },
+        {
+          "name": "SEARCH_SERVICE_PORT",
+          "value": "80"
+        },
+        {
+          "name": "USE_DEFAULT_IVS_STREAMS",
+          "value": "false"
+        },
+        {
+          "name": "OPENSEARCH_DOMAIN_PORT",
+          "value": "443"
+        },
+        {
+          "name": "OFFERS_SERVICE_PORT",
+          "value": "80"
+        },
+        {
+          "name": "RESOURCE_BUCKET",
+          "value": "retail-demo-store-us-east-1"
+        },
+        {
+          "name": "PINPOINT_APP_ID",
+          "value": "none"
+        },
+        {
+          "name": "SEARCH_CAMPAIGN_ARN",
+          "value": "none"
+        },
+        {
+          "name": "DDB_TABLE_CATEGORIES",
+          "value": "none"
+        },
+        {
+          "name": "DDB_TABLE_PRODUCTS",
+          "value": "none"
+        },
+        {
+          "name": "USERS_SERVICE_PORT",
+          "value": "80"
+        },
+        {
+          "name": "IMAGE_ROOT_URL",
+          "value": "http://d24xc2blgxaili.cloudfront.net/images/"
+        },
+        {
+          "name": "USERS_SERVICE_HOST",
+          "value": "users.retaildemostore.local"
+        }
+      ],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "OPTIMIZELY_SDK_KEY",
+          "valueFrom": "arn:aws:ssm:us-east-1:449828813699:parameter/retaildemostore-optimizely-sdk-key"
+        },
+        {
+          "name": "SEGMENT_WRITE_KEY",
+          "valueFrom": "arn:aws:ssm:us-east-1:449828813699:parameter/retaildemostore-segment-write-key"
+        }
+      ],
+      "dnsServers": [],
+      "dnsSearchDomains": [],
+      "extraHosts": [],
+      "dockerSecurityOptions": [],
+      "dockerLabels": {},
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/retaildemostore-Services-YIYWFSX96N3X-SearchService-1IA1XFQS3GRTP-Service-DPZ0TCTD83WJ",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "retaildemostore-Services-YIYWFSX96N3X-SearchService-1IA1XFQS3GRTP-Service-DPZ0TCTD83WJ"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    },
+    {
+      "name": "X-ray",
+      "image": "public.ecr.aws/xray/aws-xray-daemon:alpha",
+      "cpu": 0,
+      "links": [],
+      "portMappings": [
+        {
+          "containerPort": 2000,
+          "hostPort": 2000,
+          "protocol": "udp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": [],
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [],
+      "dnsServers": [],
+      "dnsSearchDomains": [],
+      "extraHosts": [],
+      "dockerSecurityOptions": [],
+      "dockerLabels": {},
+      "ulimits": [],
+      "systemControls": []
+    }
+  ],
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512"
+}
